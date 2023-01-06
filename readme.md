@@ -16,7 +16,7 @@ The container is split up on several tags. Most users should use base their expe
 
 ### "Real tags"
 These tags are used for defining different functionality but should normaly not be used to base experiments on 
-* monroe/base:core --> common base files (based on debian:stretch), [00_core](https://github.com/MONROE-PROJECT/Experiments/tree/master/monroe_base/00_core_docker)
+* monroe/base:core --> common base files (based on debian:bullseye), [00_core](https://github.com/MONROE-PROJECT/Experiments/tree/master/monroe_base/00_core_docker)
 * monroe/base:virt --> for virtualization support (based on monroe/base:core), [01_virt](https://github.com/MONROE-PROJECT/Experiments/tree/master/monroe_base/01_virt_docker)
 * monroe/base:cli --> Common tools for "command line experiments" (based on monroe/base:virt), [02_cli](https://github.com/MONROE-PROJECT/Experiments/tree/master/monroe_base/02_cli_docker)
 * monroe/base:web --> Common tools for web experiments (based on monroe/base:cli), [03_web](https://github.com/MONROE-PROJECT/Experiments/tree/master/monroe_base/03_web_docker)

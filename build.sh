@@ -1,7 +1,7 @@
 #/bin/sh
 LEVEL=$1
 
-NAME=monroe/base
+NAME=foivosm/base
 FINALTAG=complete
 DEFAULTTAG=cli
 OLDTAG=old

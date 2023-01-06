@@ -1,20 +1,12 @@
-FROM monroe/base:virt
+FROM foivosm/base:virt
 
-MAINTAINER jonas.karlsson@kau.se
+MAINTAINER foivos@simula.no
 
 # DumbInit
 ENV DI_VER 1.2.2
 
 #APT OPTS
 ENV APT_OPTS -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --no-install-recommends --no-install-suggests --allow-unauthenticated
-
-############## Add 3: party repositories ########################
-# OML (per Turin F2F workshop 2016-01-28)
-## Tagged for possible removal in future releases of the base image 
-ADD http://download.opensuse.org/repositories/devel:tools:mytestbed:stable/Debian_7.0/Release.key oml2.key
-RUN echo 'deb http://download.opensuse.org/repositories/devel:/tools:/mytestbed:/stable/Debian_7.0/ /' > /etc/apt/sources.list.d/oml2.list \
-    && apt-key add oml2.key \
-    && rm oml2.key
 
 
 # Remove some files only used in virt (to avoid confusion)
@@ -26,14 +18,14 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
     && apt-get install ${APT_OPTS} \
     python \
-    python-zmq \
-    python-scapy \
-    python-six \
-    python-netifaces \
-    python-rrdtool \
-    python-pip \
-    python-setuptools \
-    python-wheel \
+    python3-zmq \
+    python3-scapy \
+    python3-six \
+    python3-netifaces \
+    python3-rrdtool \
+    python3-pip \
+    python3-setuptools \
+    python3-wheel \
     python3 \
     python3-netifaces \
     python3-zmq \
@@ -66,16 +58,12 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     nano \
     jq \
     dnsutils \
-    libjson-c3 \
+    # libjson-c3 \
     xz-utils \
     scamper \
     default-jre-headless \
     speedtest-cli \
     netcat \
-    # BEGIN Tagged for possible removal in future releases
-    oml2 \
-    oml2-apps \
-    # END Tagged for possible removal in future releases
     # Dumb init
     # Dumb init
     && curl -L -o dumb-init.deb "https://github.com/Yelp/dumb-init/releases/download/v${DI_VER}/dumb-init_${DI_VER}_amd64.deb" \

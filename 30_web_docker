@@ -1,6 +1,6 @@
-FROM monroe/base:cli
+FROM foivosm/base:cli
 
-MAINTAINER jonas.karlsson@kau.se
+MAINTAINER foivos@simula.no
 
 #APT OPTS
 ENV APT_OPTS -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --no-install-recommends --no-install-suggests --allow-unauthenticated
@@ -28,13 +28,13 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list \
     && apt-get update \
     && apt-get install ${APT_OPTS} \
-    python-pip \
-    python-psutil \
+    python3-pip \
+    python3-psutil \
     unzip \
     libdbus-glib-1-2 \
     $XVFBDEPS \
-    google-chrome-stable=${CHROME_VERSION} \
-    && pip install pyvirtualdisplay selenium python-dateutil \
+    #google-chrome-stable=${CHROME_VERSION} \
+    && pip install pyvirtualdisplay selenium foivosm \
     && wget https://ftp.mozilla.org/pub/firefox/releases/${FIREFOX_VERSION}/linux-x86_64/en-US/firefox-${FIREFOX_VERSION}.tar.bz2 \
     && tar -xjf firefox-${FIREFOX_VERSION}.tar.bz2  \
     && rm -rf /opt/firefox \
@@ -44,7 +44,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
     && rm "node-v$NODE_VERSION-linux-x64.tar.xz" \
     && ln -s /usr/local/bin/node /usr/local/bin/nodejs \
-    && apt-get remove ${APT_OPTS} python-pip \
+    && apt-get remove ${APT_OPTS} python3-pip \
     # Fix missing packages
     && apt-get update ${APT_OPTS} --fix-missing \
     # Install NPM
