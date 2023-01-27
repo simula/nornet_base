@@ -14,8 +14,10 @@ RUN mkdir -p /monroe/results
 
 COPY core/files/* /opt/monroe/
 COPY core/system_files/monroe-sshtunnel-client.sh /usr/bin/
-COPY core/system_files/bind.so /opt/monroe/lib/
-COPY core/system_files/dig /opt/monroe/bin/
+# The following files (bind and dig) are so outdated they are not combatible with bullseye.
+# Alternatively, you may install in your container the package dnsutils.
+# COPY core/system_files/bind.so /opt/monroe/lib/
+# COPY core/system_files/dig /opt/monroe/bin/
 RUN chmod +x /opt/monroe/bin/dig
 RUN chmod +x /opt/monroe/metadata
 
