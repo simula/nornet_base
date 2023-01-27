@@ -18,7 +18,7 @@ COPY core/system_files/monroe-sshtunnel-client.sh /usr/bin/
 # Alternatively, you may install in your container the package dnsutils.
 # COPY core/system_files/bind.so /opt/monroe/lib/
 # COPY core/system_files/dig /opt/monroe/bin/
-RUN chmod +x /opt/monroe/bin/dig
+# RUN chmod +x /opt/monroe/bin/dig
 RUN chmod +x /opt/monroe/metadata
 
 ############## Installation of prerequisites ####################
