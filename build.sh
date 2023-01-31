@@ -1,7 +1,7 @@
 #/bin/sh
 LEVEL=$1
 
-NAME=foivosm/base
+NAME=crnaeng/base
 FINALTAG=complete
 DEFAULTTAG=cli
 OLDTAG=old
