@@ -3,7 +3,7 @@ LEVEL=$1
 
 NAME=crnaeng/base
 FINALTAG=complete
-DEFAULTTAG=cli
+DEFAULTTAG=core
 OLDTAG=old
 LASTTAG=$(ls *_docker|tail -n1|cut -f2 -d"_")
 LASTLEVEL=$(ls *_docker | tail -n1| cut -f1 -d"_")
