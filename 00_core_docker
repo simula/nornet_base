@@ -28,6 +28,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get ${APT_OPTS} upgrade \
     && apt-get ${APT_OPTS} install \
     gnupg \
+    curl \
     dumb-init \
     python3-zmq \
     python3-netifaces \
