@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim
+FROM debian:bookworm-slim
 
 MAINTAINER foivos@simula.no
 
@@ -22,7 +22,8 @@ COPY core/system_files/monroe-sshtunnel-client.sh /usr/bin/
 RUN chmod +x /opt/monroe/metadata
 
 ############## Installation of prerequisites ####################
-RUN sed -i -e 's/main/main non-free/g' /etc/apt/sources.list
+# as of debian 12 the non-free sources are automatically included. so we do not need to run the following command
+# RUN sed -i -e 's/main/main non-free/g' /etc/apt/sources.list
 RUN export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
     && apt-get ${APT_OPTS} upgrade \
